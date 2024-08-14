@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Ball
+  - Lose
+  - Block
   layers:
   - Default
   - TransparentFX
