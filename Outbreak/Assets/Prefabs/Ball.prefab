@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7710414764102396373}
+  - component: {fileID: 6509150957040210228}
   - component: {fileID: 1402172777652224546}
   - component: {fileID: 4136774042197319275}
-  - component: {fileID: 6509150957040210228}
   - component: {fileID: 603906247227297769}
   m_Layer: 0
   m_Name: Ball
@@ -35,6 +35,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6509150957040210228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185272077324851314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b91a4591ebb9a794b947daecff0574d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
 --- !u!212 &1402172777652224546
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -132,19 +145,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22, y: 0.22}
   m_EdgeRadius: 0
---- !u!114 &6509150957040210228
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8185272077324851314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b91a4591ebb9a794b947daecff0574d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &603906247227297769
 Rigidbody2D:
   serializedVersion: 4

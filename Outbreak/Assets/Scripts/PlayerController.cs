@@ -6,9 +6,7 @@ using UnityEngine.UIElements;
 public class PlayerController : MonoBehaviour
 {
 
-    public float movementSpeed = 5f;
-    private Rigidbody2D rigidbody;
-    private PlayerController playerController;
+    public float movementSpeed;
 
     // Start is called before the first frame update
     void Start()

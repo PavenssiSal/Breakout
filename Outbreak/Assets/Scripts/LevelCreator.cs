@@ -6,9 +6,6 @@ using TMPro;
 
 public class LevelCreator : MonoBehaviour
 {
-    WinGame WinGame;
-    public GameObject Block;
-    public GameObject startblockspot;
     public GameObject Ball;
 
     public int BlockAmount;
@@ -39,11 +36,5 @@ public class LevelCreator : MonoBehaviour
                 blockPlace.x += 1.5f; // Siirrä luomiskohtaa
             }
         }
-    }
-    public GameObject GameWinScreen;
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -24,6 +24,11 @@ public class BallController : MonoBehaviour
     {
         // Move the ball in the current direction
         transform.Translate(direction * speed * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            speed -= 0.01f;
+        }
     }
 
     // This method is called when the ball collides with another object
@@ -33,7 +38,7 @@ public class BallController : MonoBehaviour
         direction = Vector2.Reflect(direction, collision.contacts[0].normal);
 
         // Increase the ball's speed after colliding with an object
-        if (speed < maxSpeed)
+        if (speed < maxSpeed && collision.gameObject.tag != "Wall")
         {
             speed += 0.5f; // Increment speed gradually after each collision
         }
