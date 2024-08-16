@@ -8,7 +8,7 @@ public class BallController : MonoBehaviour
     private float maxSpeed = 20f; // Maximum speed the ball can reach
     private Vector2 direction; // The current direction of the ball's movement
 
-    
+    private GameManager gameManager;
 
     private void Start()
     {
@@ -25,7 +25,7 @@ public class BallController : MonoBehaviour
     // This method is called when the ball collides with another object
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Reflect the ball's direction based on the collision's normal vector
+        // Reflect the ball's direction based on the collision's normal vector. This line is by gpt
         direction = Vector2.Reflect(direction, collision.contacts[0].normal);
 
         // Increase the ball's speed after colliding with an object
@@ -36,8 +36,11 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.tag == "Block")
         {
+            //Add point then destroy block
+            //gameManager.points += 1;
             Destroy(collision.gameObject);
             Debug.Log("Block");
+
         }
     }
 }
