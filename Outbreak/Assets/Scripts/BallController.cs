@@ -9,11 +9,15 @@ public class BallController : MonoBehaviour
     private Vector2 direction; // The current direction of the ball's movement
 
     private GameManager gameManager;
+    private LevelCreator levelCreator;
 
     private void Start()
     {
         // Set the initial direction of the ball to a downward angle
         direction = new Vector2(Random.Range(-1f, 2f), -1f).normalized; // Start at a random angle downwards
+
+        gameManager = FindObjectOfType<GameManager>();
+        levelCreator = FindObjectOfType<LevelCreator>();
     }
 
     private void Update()
@@ -36,11 +40,11 @@ public class BallController : MonoBehaviour
 
         if (collision.gameObject.tag == "Block")
         {
-            //Add point then destroy block
-            //gameManager.points += 1;
+            //destroy block
+            gameManager.score += 100;
+            levelCreator.totalBlockAmount--;
             Destroy(collision.gameObject);
             Debug.Log("Block");
-
         }
     }
 }

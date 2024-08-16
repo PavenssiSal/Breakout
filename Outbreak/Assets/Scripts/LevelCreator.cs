@@ -1,60 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class LevelCreator : MonoBehaviour
 {
-
+    WinGame WinGame;
     public GameObject Block;
     public GameObject startblockspot;
     public GameObject Ball;
 
-    private int BlockAmount = 10;
+    public int BlockAmount;
+    public int RowAmount;
+
+    public int totalBlockAmount;
+
 
     // Start is called before the first frame update
+    public GameObject blockPrefab; // Mitä luodaan
+    public GameObject blockStartPlace;  // Missä on aloituskohta
+
     void Start()
     {
-        Vector3 blockPlace = startblockspot.transform.position;
-        for (int i = 0; i < BlockAmount; i++)
+        totalBlockAmount = BlockAmount * RowAmount;
+
+        for (int rivi = 0; rivi < RowAmount; rivi++)
         {
-            Instantiate(Block, blockPlace, Quaternion.identity);
+            // Hae aloituspaikka toisesta GameObjectista
+            Vector3 blockPlace = blockStartPlace.transform.position;
+            blockPlace.y -= rivi * 1.0f;
+            // Luo yksi rivi
+            for (int i = 0; i < BlockAmount; i++)
+            {
+                // Luo kohtaan blockPlace
+                Instantiate(blockPrefab, blockPlace, Quaternion.identity);
 
-            //TODO: Generate a random number between 1 and 2
-            int randomOffset = Random.Range(1, 3);
-            int randomWay = Random.Range(1, 5);
-
-            if (randomWay == 1)
-            {
-                blockPlace.x += randomOffset;
-            }
-            else if (randomWay == 2)
-            {
-                blockPlace.y += randomOffset;
-            }
-            else if (randomWay == 3)
-            {
-                blockPlace.y -= randomOffset;
-            }
-            else if (randomWay == 4)
-            {
-                blockPlace.x -= randomOffset;
-            }
-            while (true)
-            {
-                if (blockPlace.x > 5 || blockPlace.x < -5 || blockPlace.y > 3.5 || blockPlace.y < -2)
-                {
-                    Destroy(gameObject);
-                    Debug.Log($"Block eliminated {blockPlace} ");
-                }
-                else
-                {
-                    break;
-                }
+                blockPlace.x += 1.5f; // Siirrä luomiskohtaa
             }
         }
-        
     }
-
+    public GameObject GameWinScreen;
     // Update is called once per frame
     void Update()
     {

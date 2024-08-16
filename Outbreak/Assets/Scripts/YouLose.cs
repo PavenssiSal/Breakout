@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 /// <summary>
 ///T‰m‰ koodi suoritetaan kun kaikki kolikot on ker‰tty.
 /// </summary>
-public class WinGame : MonoBehaviour
+public class LoseGame : MonoBehaviour
 {
 
     //Voittopaneli
@@ -21,10 +21,7 @@ public class WinGame : MonoBehaviour
         //ESCill‰ p‰‰see p‰‰valikkoon
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            //Peli k‰ynnistyy
-            Time.timeScale = 1.0f;
-            //Aloitetaan uusi peli
-            SceneManager.LoadScene("MainMenu");
+            Application.Quit();
         }
         //ENTERill‰ ladataan peli alkamaan uudestaan
         if (Input.GetKeyDown(KeyCode.Return))
